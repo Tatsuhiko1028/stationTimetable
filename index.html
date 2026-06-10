@@ -555,16 +555,13 @@ function updateAll() {
     const mins = Math.max(0, Math.floor(totalSec / 60));
     const secs = Math.max(0, totalSec % 60);
 
-    const mEl = document.getElementById(`cnt-m-${dir}`);
-    const sEl = document.getElementById(`cnt-s-${dir}`);
-
-    mEl.classList.remove('departing');
     const rowEl = document.getElementById(`cnt-row-${dir}`);
 
     if (totalSec <= 0) {
       rowEl.innerHTML = `<div class="cnt-departing-text">発車中</div>`;
     } else {
-      if (!rowEl.querySelector('.cnt-mins')) {
+      const existingMins = rowEl.querySelector('.cnt-mins');
+      if (!existingMins) {
         rowEl.innerHTML =
           `<div class="cnt-mins" id="cnt-m-${dir}">${mins}</div>` +
           `<div class="cnt-min-label">分</div>` +
@@ -572,8 +569,8 @@ function updateAll() {
           `<div class="cnt-secs" id="cnt-s-${dir}">${String(secs).padStart(2,'0')}</div>` +
           `<div class="cnt-sec-label">秒後</div>`;
       } else {
-        document.getElementById(`cnt-m-${dir}`).textContent = mins;
-        document.getElementById(`cnt-s-${dir}`).textContent = String(secs).padStart(2,'0');
+        existingMins.textContent = mins;
+        rowEl.querySelector('.cnt-secs').textContent = String(secs).padStart(2,'0');
       }
     }
 
