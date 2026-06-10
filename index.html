@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>鳥羽街道駅 時刻表</title>
 <link rel="icon" href="favicon.png" type="image/png">
+<title>鳥羽街道駅 時刻表</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -70,7 +70,11 @@
   .down .dir-dest { color: var(--blue); }
 
   /* big countdown */
-  .cnt-block { margin-bottom: 6px; }
+  .cnt-block {
+    margin-bottom: 6px;
+    height: 64px;
+    display: flex; align-items: center;
+  }
   .cnt-row {
     display: flex; align-items: baseline; gap: 4px; flex-wrap: nowrap;
   }
@@ -94,7 +98,7 @@
     display: flex; align-items: center; gap: 8px;
   }
   .cnt-departing-text {
-    font-size: 28px; font-weight: 700; line-height: 1;
+    font-size: 28px; font-weight: 700; line-height: 64px;
     animation: blink .7s infinite;
   }
   .up   .cnt-departing-text { color: var(--red); }
@@ -200,12 +204,13 @@
     .dir-dest  { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
 
     /* カウントダウン */
+    .cnt-block { height: 88px; }
     .cnt-mins { font-size: 72px; font-weight: 800; }
     .cnt-min-label { font-size: 18px; font-weight: 700; }
     .cnt-sep  { font-size: 36px; }
     .cnt-secs { font-size: 52px; font-weight: 600; }
     .cnt-sec-label { font-size: 18px; font-weight: 700; }
-    .cnt-departing-text { font-size: 40px; font-weight: 800; }
+    .cnt-departing-text { font-size: 40px; font-weight: 800; line-height: 88px; }
 
     /* 次の電車メタ */
     .next-time { font-size: 18px; }
